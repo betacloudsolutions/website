@@ -1,0 +1,14 @@
+---
+language: node_js
+node_js:
+  - 11
+
+before_install:
+  - sudo apt-get -y install imagemagick lftp
+  - npm install html-minifier clean-css clean-css-cli
+
+script:
+  - scripts/build.sh
+
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "master" ]; then scripts/push.sh; fi
