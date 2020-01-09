@@ -10,12 +10,11 @@ cp source/robots.txt build
 cp source/images/*.ico build
 cp source/css/* build/css
 cp source/images/*.png build/images
-cp source/images/*.svg build/images
 
 # optimize png files
 
 for filename in build/images/*.png; do
-  if [[ $(basename($filename)) == "logo-betacloud-solutions.png" ]]; then
+  if [[ $(basename $filename) == "logo-betacloud-solutions.png" ]]; then
     mogrify \
       -depth 24 \
       -define png:compression-filter=2 \
