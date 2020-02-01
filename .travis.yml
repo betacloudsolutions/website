@@ -4,6 +4,8 @@ node_js:
   - 11
 
 before_install:
+  - wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.63.2/hugo_0.63.2_Linux-64bit.deb
+  - sudo dpkg -i /tmp/hugo.deb
   - sudo apt-get -y install imagemagick lftp
   - npm install html-minifier clean-css clean-css-cli
 
